@@ -75,37 +75,33 @@ def detect_imd_table():
 
 
 def transform_imd():
-    # Read the downloaded IMD Excel file
-    df = pd.read_excel(IMD_RAW_FILE, sheet_name=0)
+    # Detect the correct header row using the built-in function
+    df = detect_imd_table()
 
     # 1. Locate the Local Authority Code column
     code_col = find_column(
         df, 
-        ["local authority district code", "geography code", "lad code", "code"]
+        ["local authority", "code"]
     )
 
     # 2. Locate the Local Authority Name column
     name_col = find_column(
         df, 
-        ["local authority district name", "geography name", "lad name", "name"]
+        ["local authority", "name"]
     )
 
-    # 3. Locate the IMD Rank column (Expanded keywords to prevent KeyError)
+    # 3. Locate the IMD Rank column
     rank_col = find_column(
         df, 
         [
-            "index of multiple deprivation", 
-            "rank of average score", 
-            "average score", 
-            "imd rank", 
-            "rank"
+            "rank of average score",
         ]
     )
 
+    # 4. Locate Proportion of LSOAs in 10% most deprived
     proportion_col = find_column(
         df,
         [
-            "index of multiple deprivation",
             "proportion of lsoas",
         ],
     )
@@ -157,7 +153,7 @@ def transform_imd():
         ]
     )
 
-    # Convert proportions from 0-1 to percentage if necessary.
+    # Convert proportions from 0-1 to percentage if necessary
     if (
         result["imd_most_deprived_10pct_share"].max()
         <= 1
@@ -166,7 +162,7 @@ def transform_imd():
             "imd_most_deprived_10pct_share"
         ] *= 100
 
-    # Higher value = MORE deprived.
+    # Higher value = MORE deprived
     number_of_areas = (
         result["imd_average_score_rank"]
         .nunique()
