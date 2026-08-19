@@ -3,6 +3,9 @@ from src.transform import transform_all
 from src.load_database import load_database
 from src.analyse import run_analysis
 
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="urllib3")
+
 def main():
 
     print(
