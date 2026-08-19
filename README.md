@@ -1,2 +1,2 @@
-# health-economic-inequality-england
+# HEALTH ECONOMIC INEQUALITY ENGLAND
 An end-to-end data analytics platform combining deprivation, health and economic participation data to identify areas of England experiencing overlapping social vulnerability.
