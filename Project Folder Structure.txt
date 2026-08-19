@@ -1,0 +1,51 @@
+health-economic-inequality-england/
+│
+├── README.md
+├── requirements.txt
+├── config.py
+├── main.py
+│
+├── data/
+│   │
+│   ├── raw/
+│   │   ├── imd_2025_utla.xlsx
+│   │   ├── healthy_life_expectancy.csv
+│   │   ├── life_expectancy.csv
+│   │   └── economic_inactivity.csv
+│   │
+│   ├── processed/
+│   │   ├── deprivation_utla.csv
+│   │   ├── indicator_latest_long.csv
+│   │   └── analytics_master.csv
+│   │
+│   └── database/
+│       └── health_economic_inequality.db
+│
+├── src/
+│   ├── __init__.py
+│   ├── extract.py
+│   ├── transform.py
+│   ├── load_database.py
+│   └── analyse.py
+│
+├── sql/
+│   └── analysis_queries.sql
+│
+├── outputs/
+│   │
+│   ├── charts/
+│   │   ├── deprivation_vs_hle.png
+│   │   ├── health_vs_inactivity.png
+│   │   ├── top_vulnerability_areas.png
+│   │   └── correlation_matrix.png
+│   │
+│   ├── tables/
+│   │   ├── correlation_matrix.csv
+│   │   ├── vulnerability_ranking.csv
+│   │   └── top_vulnerability_areas.csv
+│   │
+│   └── reports/
+│       └── regression_summary.txt
+│
+└── powerbi/
+    └── README_POWERBI.md
