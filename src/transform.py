@@ -75,25 +75,31 @@ def detect_imd_table():
 
 
 def transform_imd():
-    
-    df = detect_imd_table()
+    # Read the downloaded IMD Excel file
+    df = pd.read_excel(IMD_RAW_FILE, sheet_name=0)
 
+    # 1. Locate the Local Authority Code column
     code_col = find_column(
-        df,
-        ["upper tier", "code"],
+        df, 
+        ["local authority district code", "geography code", "lad code", "code"]
     )
 
+    # 2. Locate the Local Authority Name column
     name_col = find_column(
-        df,
-        ["upper tier", "name"],
+        df, 
+        ["local authority district name", "geography name", "lad name", "name"]
     )
 
+    # 3. Locate the IMD Rank column (Expanded keywords to prevent KeyError)
     rank_col = find_column(
-        df,
+        df, 
         [
-            "index of multiple deprivation",
-            "rank of average score",
-        ],
+            "index of multiple deprivation", 
+            "rank of average score", 
+            "average score", 
+            "imd rank", 
+            "rank"
+        ]
     )
 
     proportion_col = find_column(
