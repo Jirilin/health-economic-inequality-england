@@ -1,0 +1,115 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+
+# Data Science & Jupyter Notebooks
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.ipython/
+*.ipynb_checkpoints/
+
+# Data Files (Avoid pushing large or confidential raw data)
+data/raw/
+data/processed/
+*.csv
+*.xlsx
+*.xls
+*.ods
+*.tsv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.db
+*.sqlite
+*.sqlite3
+
+# GIS & Spatial Data Files (Shapefiles, GeoJSON caches)
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.geojson
+*.gpkg
+
+
+# R Language (if applicable)
+
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+
+# ==========================================
+# Generated Reports & Figures
+# ==========================================
+# Uncomment the lines below if you generate charts/figures locally and don't want them in Git:
+# figures/
+# output/
+# *.png
+# *.jpg
+# *.pdf
+
+
+# Environment Variables & Keys
+
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+
+# IDE & System Files
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code & JetBrains
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
