@@ -1,0 +1,16 @@
+{
+  "selected_clusters": 2,
+  "silhouette_scores": {
+    "2": 0.4560509278234733,
+    "3": 0.333044246338926,
+    "4": 0.3010386593531989,
+    "5": 0.2971943336582086
+  },
+  "features": [
+    "imd_deprivation_percentile",
+    "healthy_life_expectancy_sex_mean",
+    "economic_inactivity_pct",
+    "unhealthy_years_estimate"
+  ],
+  "random_state": 42
+}
