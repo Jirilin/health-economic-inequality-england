@@ -765,9 +765,6 @@ Segments depend on variable selection, preprocessing and the clustering algorith
 
 ---
 
-
----
-
 ## Future Development
 
 Potential extensions include:
