@@ -1,0 +1,13 @@
+{
+  "duplicate_area_codes": 0,
+  "missingness_rate": {
+    "imd_deprivation_percentile": 0.0,
+    "healthy_life_expectancy_sex_mean": 0.013071895424836602,
+    "economic_inactivity_pct": 0.006535947712418301,
+    "vulnerability_score": 0.0
+  },
+  "vulnerability_score_valid": true,
+  "historical_observations": 11095,
+  "historical_indicators": 3,
+  "areas_in_master": 153
+}
