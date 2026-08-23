@@ -22,10 +22,7 @@ PROCESSED = (
 @st.cache_data
 def load_enriched():
 
-    return pd.read_csv(
-        PROCESSED
-        / "analytics_enriched.csv"
-    )
+    return pd.read_csv("data/processed/analytics_master.csv")
 
 
 @st.cache_data
