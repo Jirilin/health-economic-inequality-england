@@ -6,7 +6,7 @@ from src.analyse import run_analysis
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning, module="urllib3")
 
-dfrom src.extract import (
+from src.extract import (
     extract_all
 )
 
