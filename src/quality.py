@@ -30,9 +30,7 @@ def run_quality_checks():
     report = {}
 
 
-    # ---------------------------------
     # Duplicate geography
-    # ---------------------------------
 
     duplicate_codes = (
         df["area_code"]
@@ -48,9 +46,7 @@ def run_quality_checks():
     )
 
 
-    # ---------------------------------
     # Core missingness
-    # ---------------------------------
 
     columns = [
         "imd_deprivation_percentile",
@@ -79,9 +75,7 @@ def run_quality_checks():
     ] = missing
 
 
-    # ---------------------------------
     # Score range
-    # ---------------------------------
 
     score_valid = (
         df["vulnerability_score"]
@@ -101,9 +95,7 @@ def run_quality_checks():
     )
 
 
-    # ---------------------------------
     # History
-    # ---------------------------------
 
     report[
         "historical_observations"
