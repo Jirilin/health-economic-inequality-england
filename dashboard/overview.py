@@ -9,14 +9,9 @@ from dashboard.common import (
 df = load_enriched()
 
 
-st.title(
-    "HEIVA England"
-)
+st.title("HEIVA England")
 
-st.caption(
-    "Health & Economic Inequality "
-    "Vulnerability Analytics"
-)
+st.caption("Health & Economic Inequality Vulnerability Analytics")
 
 
 # KPIs
@@ -32,37 +27,19 @@ c1.metric(
 
 c2.metric(
     "Average HLE",
-    f"""
-    {
-        df[
-            'healthy_life_expectancy_sex_mean'
-        ].mean():.1f
-    } years
-    """,
+    f"{df['healthy_life_expectancy_sex_mean'].mean():.1f} years",
 )
 
 
 c3.metric(
     "Economic inactivity",
-    f"""
-    {
-        df[
-            'economic_inactivity_pct'
-        ].mean():.1f
-    }%
-    """,
+    f"{df['economic_inactivity_pct'].mean():.1f}%",
 )
 
 
 c4.metric(
     "Average HEIVA Score",
-    f"""
-    {
-        df[
-            'vulnerability_score'
-        ].mean():.1f
-    }
-    """,
+    f"{df['vulnerability_score'].mean():.1f}",
 )
 
 
@@ -71,19 +48,14 @@ st.divider()
 
 # TOP VULNERABILITY AREAS
 
-st.subheader(
-    "Highest combined vulnerability"
-)
+st.subheader("Highest combined vulnerability")
 
 
 top = (
     df.nlargest(
         15,
         "vulnerability_score",
-    )
-    .sort_values(
-        "vulnerability_score"
-    )
+    ).sort_values("vulnerability_score")
 )
 
 
@@ -93,11 +65,8 @@ fig = px.bar(
     y="area_name",
     orientation="h",
     labels={
-        "vulnerability_score":
-            "HEIVA Score",
-
-        "area_name":
-            "Local Authority",
+        "vulnerability_score": "HEIVA Score",
+        "area_name": "Local Authority",
     },
 )
 
@@ -109,27 +78,21 @@ st.plotly_chart(
 
 # RELATIONSHIP ANALYSIS
 
-st.subheader(
-    "Deprivation and healthy life expectancy"
-)
+st.subheader("Deprivation and healthy life expectancy")
 
+# Safe check in case 'segment_name' column was not created during transform
+color_col = "segment_name" if "segment_name" in df.columns else None
 
 scatter = px.scatter(
     df,
     x="imd_deprivation_percentile",
     y="healthy_life_expectancy_sex_mean",
-    color="segment_name",
+    color=color_col,
     hover_name="area_name",
-
     labels={
-        "imd_deprivation_percentile":
-            "Deprivation percentile",
-
-        "healthy_life_expectancy_sex_mean":
-            "Healthy life expectancy",
-
-        "segment_name":
-            "Area segment",
+        "imd_deprivation_percentile": "Deprivation percentile",
+        "healthy_life_expectancy_sex_mean": "Healthy life expectancy",
+        "segment_name": "Area segment",
     },
 )
 
