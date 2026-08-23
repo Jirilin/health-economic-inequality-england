@@ -765,16 +765,6 @@ Segments depend on variable selection, preprocessing and the clustering algorith
 
 ---
 
-## Portfolio / CV Summary
-
-**HEIVA England - Health & Economic Inequality Analytics**  
-*Python | SQL | Power BI | Pandas | Statistics | Streamlit*
-
-- Developed an end-to-end analytics pipeline integrating official English deprivation, health and economic-participation data using Python and geographic identifiers.
-- Designed a SQLite analytical layer and applied SQL, exploratory analysis, correlation, regression, trend analysis and data-driven segmentation to investigate place-based inequality.
-- Built an experimental HEIVA vulnerability index, Power BI dashboard and Streamlit application to communicate overlapping socioeconomic and health vulnerability across English local authorities.
-
-> Replace the bullets above with quantified values from your final outputs where possible.
 
 ---
 
