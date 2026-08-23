@@ -19,6 +19,44 @@ INDICATOR_MAP = {
 }
 
 
+
+
+# Updated:
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+def get_session():
+    """Creates a requests Session with automatic retries and custom headers."""
+    session = requests.Session()
+    retries = Retry(
+        total=5,
+        backoff_factor=1,
+        status_forcelist=[500, 502, 503, 504],
+    )
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+    }
+    session.headers.update(headers)
+    session.mount("https://", HTTPAdapter(max_retries=retries))
+    return session
+
+def download_fingertips_metadata():
+    url = "https://fingertips.phe.org.uk/api/indicators/metadata"
+    session = get_session()
+    
+    try:
+        response = session.get(url, timeout=30)
+        response.raise_for_status()
+        return response.json()
+    except Exception as e:
+        print(f"Warning: Could not fetch Fingertips metadata online ({e}). Skipping metadata download...")
+        return {}
+
+
+
+
 def download_binary_file(url, destination):
     print(f"Downloading: {url}")
     response = requests.get(url, timeout=120)
