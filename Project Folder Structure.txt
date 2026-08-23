@@ -4,6 +4,7 @@ health-economic-inequality-england/
 ├── requirements.txt
 ├── config.py
 ├── main.py
+├── app.py
 │
 ├── data/
 │   │
@@ -11,41 +12,68 @@ health-economic-inequality-england/
 │   │   ├── imd_2025_utla.xlsx
 │   │   ├── healthy_life_expectancy.csv
 │   │   ├── life_expectancy.csv
-│   │   └── economic_inactivity.csv
+│   │   ├── economic_inactivity.csv
+│   │   └── indicator_manifest.csv
 │   │
 │   ├── processed/
 │   │   ├── deprivation_utla.csv
-│   │   ├── indicator_latest_long.csv
-│   │   └── analytics_master.csv
+│   │   ├── analytics_master.csv
+│   │   ├── analytics_enriched.csv
+│   │   ├── indicator_history.csv
+│   │   ├── area_trends.csv
+│   │   ├── cluster_profiles.csv
+│   │   ├── economic_inactivity_forecast.csv
+│   │   └── heiva_map.geojson
+│   │
+│   ├── geospatial/
+│   │   └── utla_boundaries.geojson
 │   │
 │   └── database/
 │       └── health_economic_inequality.db
 │
 ├── src/
 │   ├── __init__.py
-│   ├── extract.py
-│   ├── transform.py
-│   ├── load_database.py
-│   └── analyse.py
+│   │
+│   ├── extract.py                ← existing
+│   ├── transform.py              ← existing
+│   ├── load_database.py          ← existing
+│   ├── analyse.py                ← existing
+│   │
+│   ├── history.py                ← NEW V2
+│   ├── forecasting.py            ← NEW V2
+│   ├── clustering.py             ← NEW V3
+│   ├── geospatial.py             ← NEW V3
+│   ├── quality.py                ← NEW V5
+│   └── load_advanced_database.py ← NEW
+│
+├── dashboard/
+│   ├── __init__.py
+│   ├── common.py
+│   │
+│   ├── overview.py
+│   ├── trends.py
+│   ├── segments.py
+│   ├── explorer.py
+│   └── methodology.py
 │
 ├── sql/
-│   └── analysis_queries.sql
+│   ├── analysis_queries.sql
+│   └── advanced_queries.sql
 │
 ├── outputs/
-│   │
 │   ├── charts/
-│   │   ├── deprivation_vs_hle.png
-│   │   ├── health_vs_inactivity.png
-│   │   ├── top_vulnerability_areas.png
-│   │   └── correlation_matrix.png
-│   │
 │   ├── tables/
-│   │   ├── correlation_matrix.csv
-│   │   ├── vulnerability_ranking.csv
-│   │   └── top_vulnerability_areas.csv
-│   │
-│   └── reports/
-│       └── regression_summary.txt
+│   ├── forecasts/
+│   └── quality/
 │
-└── powerbi/
-    └── README_POWERBI.md
+├── tests/
+│   └── test_quality.py
+│
+├── .github/
+│   └── workflows/
+│       └── refresh-heiva.yml
+│
+├── .streamlit/
+│   └── config.toml
+│
+└── .gitignore
