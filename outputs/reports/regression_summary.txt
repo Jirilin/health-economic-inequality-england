@@ -3,8 +3,8 @@
 Dep. Variable:     healthy_life_expectancy_sex_mean   R-squared:                       0.665
 Model:                                          OLS   Adj. R-squared:                  0.661
 Method:                               Least Squares   F-statistic:                     147.1
-Date:                              Sun, 23 Aug 2026   Prob (F-statistic):           6.64e-36
-Time:                                      11:22:07   Log-Likelihood:                -337.17
+Date:                              Mon, 31 Aug 2026   Prob (F-statistic):           6.64e-36
+Time:                                      08:30:17   Log-Likelihood:                -337.17
 No. Observations:                               151   AIC:                             680.3
 Df Residuals:                                   148   BIC:                             689.4
 Df Model:                                         2                                         
